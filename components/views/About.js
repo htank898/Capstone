@@ -13,13 +13,6 @@ export default state => html`
           />
         </div>
       </a>
-      <nav>
-        <div id="Senate" class="Nav"><a href="senate.html">Senate</a></div>
-        <div id="House" class="Nav"><a href="house.html">House</a></div>
-        <div id="Trade" class="Nav"><a href="trade.html">Trade</a></div>
-        <div id="News" class="Nav"><a href="news.html">News</a></div>
-        <div id="AboutUs" class="Nav"><a href="aboutUs.html">About Us</a></div>
-      </nav>
     </header>
 
     <div class="senators"></div>

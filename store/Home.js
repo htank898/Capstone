@@ -1,4 +1,4 @@
 export default {
   header: "Adagio",
-  view: "Adagio"
+  view: "Home"
 };
