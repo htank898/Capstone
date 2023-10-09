@@ -14,7 +14,27 @@ export default state => html`
         </div>
       </a>
     </header>
+    <table>
+      <tr>
+        <th></th>
+        Beagles
+        <th></th>
+        On
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-    <div class="senators"></div>
+      ${state.pizzas
+        .map(pizza => {
+          return `<tr><td>${pizza.crust}</td><td>${pizza.cheese}</td><td>${
+            pizza.sauce
+          }</td><td>${pizza.toppings.join(" & ")}</td><td>${
+            pizza.customer
+          }</td></tr>`;
+        })
+        .join("")}
+    </table>
   </body>
 `;
