@@ -1,0 +1,57 @@
+:root {
+  /* Primary Colors */
+  --primary-color: #485766; /* Main primary color */
+  --secondary-color: #0056b3; /* Secondary color for hover effects or accents */
+
+  /* Background Colors */
+  --background-color: hsl(0, 0%, 96%); /* Background color for the entire page */
+  --content-background: #344f7b; /* Background color for content areas */
+
+  /* Text Colors */
+  --text-color: #333333; /* Main text color */
+  --heading-color: #000000; /* Heading text color */
+
+  /* Border Colors */
+  --border-color: #dddddd; /* Borders and separators */
+
+  footer {
+    background-color: var(--content-background);
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+
+body {
+  background-color: var(--primary-color);
+  margin: 0px;
+}
+
+#menu {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+#menu-items {
+  margin-left: clamp(4rem, 20vw, 48rem);
+}
+
+#menu-items:hover > .menu-item {
+  opacity: 0.3;
+}
+#menu-items:hover > menu-item:hover {
+  opacity: 1;
+}
+
+.menu-item {
+  color: var(--text-color);
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-family: "Ibarra Real Nova", serif;
+
+  display: block;
+  text-decoration: none;
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+  transition: opacity 400ms ease;
+}
