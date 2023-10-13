@@ -71,6 +71,7 @@ header {
   font-size: 28px;
   font-weight: bold;
   color: --heading-color;
+  padding:  0 0 0 50px;
 }
 
 .hamburger {
@@ -161,4 +162,11 @@ h1 {
 #boogaloo {
   background-color: pink;
   width: 500px;
+}
+
+
+.hometext {
+  display: flex;
+  align-items: center;
+  top: 100px;
 }

@@ -6,8 +6,7 @@ export default state => html`
     Temperature is ${state.weather.temp}F, and it feels like
     ${state.weather.feelsLike}F.
   </h3>
-  <div>
+  <div class="hometext">
     Trade like the 1%
-    <div></div>
   </div>
 `;
