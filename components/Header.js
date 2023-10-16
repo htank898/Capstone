@@ -21,4 +21,21 @@ export default state => html`
       </ul>
     </nav>
   </header>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var header = document.querySelector("header");
+
+      // Set the scroll threshold (in pixels) to reveal the header
+      var scrollThreshold = 100; // Change this value to your desired scroll amount
+
+      window.addEventListener("scroll", function() {
+        if (window.scrollY >= scrollThreshold) {
+          header.style.display = "block";
+        } else {
+          header.style.display = "none";
+        }
+      });
+    });
+  </script>
 `;
