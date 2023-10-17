@@ -7,9 +7,6 @@ export default state => html`
     alt="hero"
   /> -->
   <section>
-    <style>
-      top: -50px;
-    </style>
     <h1>Nice Curves</h1>
     <p>Here is some example text</p>
   </section>
