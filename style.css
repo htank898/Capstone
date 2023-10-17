@@ -4,7 +4,7 @@
   --secondary-color: #F1B82D; /* Secondary color for hover effects or accents */
 
   /* Background Colors */
-  --background-color: hsl(0, 3%, 23%); /* Background color for the entire page */
+  --background-color: #202731; /* Background color for the entire page */
   --content-background: #344f7b; /* Background color for content areas */
 
   /* Text Colors */
@@ -24,8 +24,64 @@
 
 
 body {
-  /* background-color: var(--background-color); */
-  /* margin: 0px; */
+  margin: 0;
+  font-family: 'Prompt', sans-serif;
+  color: rgb(136, 129, 129);
+  background: var(--background-color);
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+  padding: 100px 20vw;
+}
+
+.curve {
+  position: absolute;
+  height: 225px;
+  width: 100%;
+  bottom: 0;
+}
+
+.curve::before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%
+  background-color: var(--background-color)
+  transform: translate(85%, 60%);
+}
+
+.curve::after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%
+  background-color: #3c31dd
+  transform: translate(-4%, 40%)
+}
+
+.blue {
+  background: #3c31dd;
+}
+
+.red {
+  background: #dd3f31
+}
+
+.pink {
+  background: pink;
+}
+
+.dark {
+  background: #0f0f10;
 }
 
 /* #menu {
@@ -65,6 +121,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 100px 0 0px;
+  z-index: 1;
 }
 
 .logo {
@@ -151,22 +208,58 @@ header {
 }
 
 
-h1 {
+/* h1 {
   display: flex;
   justify-content: center;
   background-color: black;
   color: var(--text-color);
   height: 100px;
-}
-
-#boogaloo {
-  background-color: pink;
-  width: 500px;
-}
+} */
 
 
 .hometext {
   display: flex;
   align-items: center;
   top: 100px;
+}
+
+#profilepic {
+  border-radius: 150px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+#codelogo {
+  position: absolute;
+  top: 78%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+#hero {
+  /* Set the background image and specify its path */
+
+  /* Ensure the background image covers the entire viewport */
+  background-size: cover;
+
+  /* Center the background image both horizontally and vertically */
+  background-position: center center;
+
+  /* Make the background fixed so it doesn't scroll with the content */
+  background-attachment: fixed;
+
+  /* Set a minimum height for the hero to ensure it's visible */
+  min-height: 100vh;
+
+  /* Add some additional styling for text or other content within the hero */
+  color: #fff; /* Text color */
+  text-align: center; /* Center-align text */
+  padding: 0; /* Add padding for content if needed */
+}
+
+
+header.hidden {
+  display: none;
 }

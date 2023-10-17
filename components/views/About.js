@@ -1,20 +1,15 @@
 import html from "html-literal";
 
 export default state => html`
-  <body>
-    <header>
-      <a href="index.html">
-        <div class="container">
-          <img
-            src="https://preview.redd.it/9c1nnrvngnob1.jpg?width=148&format=pjpg&auto=webp&s=683c7014c100b0c6efe9d96055b86a2775541e17"
-            alt="Adagio Logo"
-            width="50"
-            height="50"
-          />
-        </div>
-      </a>
-    </header>
+  <img
+    id="profilepic"
+    src="https://preview.redd.it/4l5skltdivtb1.jpg?width=512&format=pjpg&auto=webp&s=1aaab585c8b6d1a0dfc3688a91c2fe732a0f4156"
+    alt="Profile Photo"
+  />
 
-    <div class="senators"></div>
-  </body>
+  <img
+    id="codelogo"
+    src="https://global.discourse-cdn.com/sitepoint/original/3X/b/5/b59a78e2ed76c705f3c0dcb300f3f222aefdcd99.png"
+    alt="codelogo"
+  />
 `;
