@@ -4,7 +4,7 @@
   --secondary-color: #F1B82D; /* Secondary color for hover effects or accents */
 
   /* Background Colors */
-  --background-color: hsl(0, 0%, 0%); /* Background color for the entire page */
+  --background-color: hsl(0, 3%, 23%); /* Background color for the entire page */
   --content-background: #344f7b; /* Background color for content areas */
 
   /* Text Colors */
@@ -24,7 +24,7 @@
 
 
 body {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   /* margin: 0px; */
 }
 
@@ -71,6 +71,7 @@ header {
   font-size: 28px;
   font-weight: bold;
   color: --heading-color;
+  padding:  0 0 0 50px;
 }
 
 .hamburger {
@@ -156,4 +157,16 @@ h1 {
   background-color: black;
   color: var(--text-color);
   height: 100px;
+}
+
+#boogaloo {
+  background-color: pink;
+  width: 500px;
+}
+
+
+.hometext {
+  display: flex;
+  align-items: center;
+  top: 100px;
 }

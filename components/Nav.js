@@ -1,4 +1,4 @@
 import html from "html-literal";
-// import Links from "../store/Links";
+import links from "../store/Links.js";
 
 export default links => html``;
