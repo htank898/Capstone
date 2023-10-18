@@ -2,7 +2,7 @@ import html from "html-literal";
 import links from "../store/Links.js";
 
 export default state => html`
-  <header>
+  <header id="header">
     <!-- <h1>${state.header}</h1> -->
     <div class="logo">Adagio</div>
     <div class="hamburger">
@@ -21,21 +21,18 @@ export default state => html`
       </ul>
     </nav>
   </header>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var header = document.querySelector("header");
-
-      // Set the scroll threshold (in pixels) to reveal the header
-      var scrollThreshold = 100; // Change this value to your desired scroll amount
-
-      window.addEventListener("scroll", function() {
-        if (window.scrollY >= scrollThreshold) {
-          header.style.display = "block";
-        } else {
-          header.style.display = "none";
-        }
-      });
-    });
-  </script>
 `;
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+  const scrollPosition = window.scrollY;
+
+  if (scrollPosition > 100) {
+    header.style.opacity = "1";
+    header.style.backgroundColor = "#000000";
+  } else {
+    header.style.opacity = "0";
+    header.style.backgroundColor = "#000001";
+  }
+});

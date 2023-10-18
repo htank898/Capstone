@@ -1,3 +1,5 @@
+@import 'normalize.css';
+
 :root {
   /* Primary Colors */
   --primary-color: #000000; /* Main primary color */
@@ -8,7 +10,7 @@
   --content-background: #344f7b; /* Background color for content areas */
 
   /* Text Colors */
-  --text-color: #333333; /* Main text color */
+  --text-color: #ffffff; /* Main text color */
   --heading-color: #000000; /* Heading text color */
 
   /* Border Colors */
@@ -17,7 +19,7 @@
   footer {
     background-color: var(--content-background);
     height: 50px;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
   }
@@ -115,19 +117,20 @@ section {
 header {
   width: 100%;
   height: 100px;
-  background: var(--secondary-color);
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: black 0.3s ease;
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 100px 0 0px;
   z-index: 1;
+  color: white;
 }
 
 .logo {
   font-size: 28px;
   font-weight: bold;
-  color: --heading-color;
   padding:  0 0 0 50px;
 }
 
@@ -142,7 +145,7 @@ header {
 
 .nav-bar ul li a {
   display: block;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: 20px;
   padding: 10px 25px;
   border-radius: 50px;
@@ -156,10 +159,10 @@ header {
 }
 
 
-/* .nav-bar ul li a.active {
+.nav-bar ul li a.active {
   color: rgb(0, 0, 0);
   background: orange;
-} */
+}
 
 @media only screen and (max-width: 1320px) {
   header {
@@ -218,9 +221,18 @@ header {
 
 
 .hometext {
+  position: relative;
+  top: -5vw;
+  right: 800px;
+  width: 100%;
+  height: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  top: 100px;
+  background-color: rgba(0, 0, 0, 0); /* You can adjust the background color and transparency */
+  color: #fff;
+  font-size: xx-large;
 }
 
 #profilepic {
@@ -238,28 +250,41 @@ header {
   transform: translate(-50%, -50%)
 }
 
-#hero {
-  /* Set the background image and specify its path */
+.hero {
+  height: 100vh;
+  width: 100%;
+  background: red;
+}
 
-  /* Ensure the background image covers the entire viewport */
-  background-size: cover;
-
-  /* Center the background image both horizontally and vertically */
-  background-position: center center;
-
-  /* Make the background fixed so it doesn't scroll with the content */
-  background-attachment: fixed;
-
-  /* Set a minimum height for the hero to ensure it's visible */
-  min-height: 100vh;
-
-  /* Add some additional styling for text or other content within the hero */
-  color: #fff; /* Text color */
-  text-align: center; /* Center-align text */
-  padding: 0; /* Add padding for content if needed */
+.hero video{
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index: 0;
+  object-fit: cover;
 }
 
 
 header.hidden {
   display: none;
 }
+
+
+html::-webkit-scrollbar {
+  width: 1vw;
+  background: #0f0f10;
+  width: 7px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #606060;
+  border-radius: 100px;
+}
+
+html::-webkit-scrollbar-track {
+  /* background-color: rgb(255, 255, 255); */
+}
+
+
