@@ -2,6 +2,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import pizzas from "./routers/pizzas.js";
 
 // Initialize the Express application
 const app = express();
@@ -29,11 +30,10 @@ const logging = (request, response, next) => {
   console.log(
     `${request.method} ${request.url} ${new Date().toLocaleString("en-us")}`
   );
-
   next();
 };
 
-// CORS Middleware
+// CORS middleware
 const cors = (req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Headers",
@@ -105,6 +105,8 @@ app.get("/weather/:city", (request, response) => {
   );
 });
 
+app.use("/pizzas", pizzas);
+
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+app.listen(4040, () => console.log(`Listening on port ${PORT}`));
