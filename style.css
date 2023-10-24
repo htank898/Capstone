@@ -1,0 +1,295 @@
+@import 'normalize.css';
+
+:root {
+  /* Primary Colors */
+  --primary-color: #000000; /* Main primary color */
+  --secondary-color: #F1B82D; /* Secondary color for hover effects or accents */
+
+  /* Background Colors */
+  --background-color: #202731; /* Background color for the entire page */
+  --content-background: #344f7b; /* Background color for content areas */
+
+  /* Text Colors */
+  --text-color: #ffffff; /* Main text color */
+  --heading-color: #000000; /* Heading text color */
+
+  /* Border Colors */
+  --border-color: #dddddd; /* Borders and separators */
+
+  footer {
+    background-color: var(--content-background);
+    height: 50px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+
+
+body {
+  margin: 0;
+  font-family: 'Prompt', sans-serif;
+  color: rgb(136, 129, 129);
+  background: var(--background-color);
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+  padding: 100px 20vw;
+}
+
+.curve {
+  position: absolute;
+  height: 225px;
+  width: 100%;
+  bottom: 0;
+}
+
+.curve::before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%
+  background-color: var(--background-color)
+  transform: translate(85%, 60%);
+}
+
+.curve::after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%
+  background-color: #3c31dd
+  transform: translate(-4%, 40%)
+}
+
+.blue {
+  background: #3c31dd;
+}
+
+.red {
+  background: #dd3f31
+}
+
+.pink {
+  background: pink;
+}
+
+.dark {
+  background: #0f0f10;
+}
+
+/* #menu {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+#menu-items {
+  margin-left: clamp(4rem, 20vw, 48rem);
+}
+
+#menu-items:hover > .menu-item {
+  opacity: 0.3;
+}
+#menu-items:hover > menu-item:hover {
+  opacity: 1;
+}
+
+.menu-item {
+  color: var(--text-color);
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-family: "Ibarra Real Nova", serif;
+
+  display: block;
+  text-decoration: none;
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+  transition: opacity 400ms ease; */
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: black 0.3s ease;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px 0 0px;
+  z-index: 1;
+  color: white;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  padding:  0 0 0 50px;
+}
+
+.hamburger {
+  display: block;
+}
+
+.nav-bar ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-bar ul li a {
+  display: block;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: 0.2s;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.nav-bar ul li a:hover {
+  color: rgb(255, 255, 255);
+  background: rgb(0, 0, 0);
+}
+
+
+.nav-bar ul li a.active {
+  color: rgb(0, 0, 0);
+  background: orange;
+}
+
+@media only screen and (max-width: 1320px) {
+  header {
+    padding: 0 50px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  header {
+    padding: 0 30px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-bar {
+    display: block;
+    height: 450px;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100vw;
+    background: pink;
+    transition: 0.2s;
+  }
+  .nav-bar ul {
+    display: block;
+    width: fit-content;
+    margin: 80px auto 0 auto;
+    text-align: center;
+    transition: 0.5s;
+  }
+  .nav-bar ul li a {
+    margin-bottom: 12px;
+    list-style-type: none;
+    text-decoration: none;
+  }
+}
+
+
+/* h1 {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  color: var(--text-color);
+  height: 100px;
+} */
+
+
+.hometext {
+  position: relative;
+  top: -10vh;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0); /* You can adjust the background color and transparency */
+  color: #fff;
+  font-size: xx-large;
+  text-decoration: ;
+}
+
+#profilepic {
+  border-radius: 150px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+#codelogo {
+  position: absolute;
+  top: 78%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+
+#calltoaction {
+  display: flex;
+  position: absolute;
+  right: 45vw;
+  top: 95vh;
+}
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  background: transparent;
+}
+
+.hero video{
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index: 0;
+  object-fit: cover;
+}
+
+
+header.hidden {
+  display: none;
+}
+
+
+html::-webkit-scrollbar {
+  width: 1vw;
+  background: #0f0f10;
+  width: 7px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #606060;
+  border-radius: 100px;
+}
+
+html::-webkit-scrollbar-track {
+  /* background-color: rgb(255, 255, 255); */
+}
+
+
