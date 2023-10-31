@@ -1,4 +1,5 @@
 export default {
   header: "",
-  view: "House"
+  view: "House",
+  reps: []
 };

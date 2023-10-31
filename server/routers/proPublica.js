@@ -1,12 +1,12 @@
 import { Router } from "express";
-import Pizza from "../models/Pizza.js";
+import lobby from "../models/lobby.js";
 
 const router = Router();
 
-// Create pizza route
+// Create lobby route
 router.post("/", async (request, response) => {
   try {
-    const newStock = new Stock(request.body);
+    const newlobby = new Lobby(request.body);
 
     const data = await newStock.save();
 

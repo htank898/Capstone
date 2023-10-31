@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const lobbySchema = new mongoose.Schema({
-  customer: {
+  Name: {
     type: String,
     required: true,
     validate: /^[A-Za-z0-9 ]*$/
