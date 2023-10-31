@@ -18,3 +18,6 @@ export default state => html`
     </table>
   </section>
 `;
+
+// map through each legislator with getLegislators method
+// loop
