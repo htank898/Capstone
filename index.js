@@ -57,8 +57,13 @@ router.hooks({
           .then(response => {
             // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
             console.log("response", response);
-            store.House.reps = response.data;
-            console.log(store.House);
+            console.log("response.data", response.data);
+            console.log(
+              "response.data",
+              response.data.response.contributors["@attributes"].cand_name
+            );
+            store.House.reps.push(response.data);
+            console.log(store.House.reps);
             done();
           })
           .catch(error => {
