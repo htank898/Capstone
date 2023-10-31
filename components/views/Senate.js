@@ -78,7 +78,7 @@ export default state => html`
         id="customer"
         value="Anonymous Customer"
       />
-      <input type="submit" name="submit" value="Submit Pizza" />
+      <input type="submit" name="submit" value="Search" />
     </form>
   </section>
 `;

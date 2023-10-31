@@ -32,46 +32,32 @@ export default state => html`
   </button>
 
   <section>
-    <h3>
-      The weather in ${state.weather.city} is ${state.weather.description}.
-      Temperature is ${state.weather.temp}F, and it feels like
-      ${state.weather.feelsLike}F.
-    </h3>
-    <p>Here is some example text</p>
-  </section>
-  <section class="blue">
-    <h1>Nice Curves</h1>
-    <p>Here is some example text</p>
-    <div class="curve"></div>
-  </section>
-
-  <section>
-    <h1>Nice Curves</h1>
+    <h1></h1>
     <p>Here is some example text</p>
   </section>
 
   <section class="red">
-    <h1>Nice Curves</h1>
+    <h1></h1>
     <p>Here is some example text</p>
   </section>
 
   <section>
-    <h1>Nice Curves</h1>
+    <h1></h1>
     <p>Here is some example text</p>
   </section>
 
   <section class="pink">
-    <h1>Nice Curves</h1>
+    <h1></h1>
     <p>Here is some example text</p>
   </section>
 
   <section>
-    <h1>Nice Curves</h1>
+    <h1></h1>
     <p>Here is some example text</p>
   </section>
 
   <section class="dark">
-    <h1>Nice Curves</h1>
+    <h1></h1>
     <p>Here is some example text</p>
   </section>
 `;

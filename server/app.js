@@ -105,7 +105,7 @@ app.get("/weather/:city", (request, response) => {
   );
 });
 
-app.use("/pizzas", pizzas);
+// app.use("/Senate.js", senators);
 
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
