@@ -19,8 +19,5 @@ export default state => html`
   </section>
 `;
 
-
-
 // map through each legislator with getLegislators method
 // loop
-
