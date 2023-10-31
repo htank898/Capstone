@@ -293,3 +293,15 @@ html::-webkit-scrollbar-track {
 }
 
 
+#bribe {
+  position: absolute;
+  top: 70vh;
+  right: 8vw;
+  width: 85%;
+  object-fit: contain;
+}
+
+#lobbyHeader {
+  text-align: center;
+  padding-top: 20vh;
+}

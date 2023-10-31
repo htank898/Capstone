@@ -2,9 +2,6 @@ import html from "html-literal";
 
 export default state => html`
   <section>
-
-  <h3> Lobbying <h3>
-    <h2>
       Lobbying, in its current form, undermines democracy by granting undue
       power to corporations while sidelining the interests of voters. Wealthy
       corporations wield influence through financial resources, shaping policies
