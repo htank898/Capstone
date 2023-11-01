@@ -1,13 +1,16 @@
 import html from "html-literal";
 
+// const getLegislatorsObject = legislators.response.legislator[0]["@attributes"];
+// const getLegislatorsArray = Object.values(getLegislatorsObject);
+
 export default state => html`
   <section id="order">
-    <form id="order" method="POST" action="">
+    <form id="stateForm" method="POST" action="">
       <h2>Search Your Senator</h2>
       <h3>By State</h3>
       <div>
         <label for="State"></label>
-        <select id="crust" name="crust">
+        <select id="states" name="states">
           <option value="">Select a State</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -61,24 +64,23 @@ export default state => html`
         </select>
       </div>
 
-      <h3>By Name</h3>
-      <div>
-        <label for="cheese">Congressperson Name:</label>
-        <input
-          type="text"
-          name="cheese"
-          id="cheese"
-          placeholder="Enter Name"
-          required
-        />
-      </div>
-      <input
-        type="hidden"
-        name="customer"
-        id="customer"
-        value="Anonymous Customer"
-      />
       <input type="submit" name="submit" value="Search" />
     </form>
+  </section>
+
+  <section id="Nametable">
+    <table id="getName">
+      <tr>
+        <th>Name</th>
+        <th>Party</th>
+        <th>Candidate ID</th>
+      </tr>
+
+      ${state.legislators
+        .map(legislator => {
+          return `<tr><td>${legislator.firstlast}</td><td>${legislator.party}<td>${legislator.cid}</tr>`;
+        })
+        .join("")}
+    </table>
   </section>
 `;

@@ -4,7 +4,7 @@ import links from "../store/Links.js";
 export default state => html`
   <header id="header">
     <!-- <h1>${state.header}</h1> -->
-    <div class="logo">Adagio</div>
+    <div class="logo" id="Adagio">Adagio</div>
     <div class="hamburger">
       <div class="line"></div>
       <div class="line"></div>
