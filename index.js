@@ -9,15 +9,41 @@ const router = new Navigo("/");
 function render(state = store.Home) {
   document.querySelector("#root").innerHTML = `
   ${Header(state)} ${Nav(store.Links)} ${Main(state)} ${Footer()}`;
-  afterRender();
+  afterRender(state);
   router.updatePageLinks();
 }
 function afterRender(state) {
-  // add menu toggle to bars icon in nav bar
-  //   document.querySelector(".fa-bars").addEventListener("click", () => {
-  //     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
-  //   });
+  if (state.view === "Legislators") {
+    const stateForm = document.getElementById("stateForm");
+    stateForm.addEventListener("submit", event => {
+      event.preventDefault();
+      let id = event.target.elements.states.value;
+      axios
+        .get(
+          `https://www.opensecrets.org/api/?method=getLegislators&id=${id}&output=json&apikey=${process.env.OPEN_SECRETS}`
+        )
+        .then(response => {
+          // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
+          console.log("response", response);
+          store.Legislators.legislators = response.data.response.legislator.map(
+            data => {
+              return data["@attributes"];
+            }
+          );
+          console.log(store.Legislators);
+          router.navigate("/legislators");
+        })
+        .catch(error => {
+          console.log("It puked", error);
+        });
+    });
+  }
 }
+
+// add menu toggle to bars icon in nav bar
+//   document.querySelector(".fa-bars").addEventListener("click", () => {
+//     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
+//   });
 // `GET https://www.opensecrets.org/api/?method=candContrib&cid=N00007360&cycle=2016&apikey=${process.env.OPEN_SECRETS}`;
 router.hooks({
   before: (done, params) => {
@@ -28,26 +54,25 @@ router.hooks({
         : "Home";
     // Add a switch case statement to handle multiple routes
     switch (view) {
-      case "Senate":
-        // New Axios get request utilizing already made environment variable
-        axios
-          .get(`${process.env.PRO_PUBLICA}/proPublica`)
-          .then(response => {
-            // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
-            console.log("response", response);
-            store.Senate.senators = response.data;
-            console.log(store.Senate);
-            done();
-          })
-          .catch(error => {
-            console.log("It puked", error);
-            done();
-          });
-        break;
-      default:
-        done();
-    }
-    switch (view) {
+      // case "Legislators":
+      //   // New Axios get request utilizing already made environment variable
+      //   axios
+      //     .get(
+      //       `https://www.opensecrets.org/api/?method=getLegislators&id=MO&output=json&apikey=${process.env.OPEN_SECRETS}`
+      //     )
+      //     .then(response => {
+      //       // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
+      //       console.log("response", response);
+      //       store.Legislators.legislators = response.data;
+      //       console.log(store.Legislators);
+      //       done();
+      //     })
+      //     .catch(error => {
+      //       console.log("It puked", error);
+      //       done();
+      //     });
+      //   break;
+
       case "House":
         // New Axios get request utilizing already made environment variable
         axios
@@ -98,3 +123,7 @@ router
     }
   })
   .resolve();
+
+// first call to get all the candidates
+// load candidates into select box with name/id...
+// once
