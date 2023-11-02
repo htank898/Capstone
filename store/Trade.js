@@ -1,4 +1,5 @@
 export default {
   header: "Place Mock Trades",
-  view: "Trade"
+  view: "Trade",
+  comments: []
 };

@@ -4,7 +4,7 @@ import html from "html-literal";
 // const getLegislatorsArray = Object.values(getLegislatorsObject);
 
 export default state => html`
-  <section id="order">
+  <section id="stateSearch">
     <form id="stateForm" method="POST" action="">
       <h2>Search Your Senator</h2>
       <h3>By State</h3>
@@ -68,19 +68,23 @@ export default state => html`
     </form>
   </section>
 
-  <section id="Nametable">
-    <table id="getName">
-      <tr>
-        <th>Name</th>
-        <th>Party</th>
-        <th>Candidate ID</th>
-      </tr>
-
-      ${state.legislators
-        .map(legislator => {
-          return `<tr><td>${legislator.firstlast}</td><td>${legislator.party}<td>${legislator.cid}</tr>`;
-        })
-        .join("")}
+  <section id="nameTable">
+    <table id="getName" class="content-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Party</th>
+          <th>Candidate ID</th>
+          <th>Congressional Office (Senate/House)</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${state.legislators
+          .map(legislator => {
+            return `<tr><td>${legislator.firstlast}</td><td>${legislator.party}<td>${legislator.cid}<td>${legislator.congress_office}</tr>`;
+          })
+          .join("")}
+      </tbody>
     </table>
   </section>
 `;

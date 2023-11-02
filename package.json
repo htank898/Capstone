@@ -2,9 +2,11 @@
   "name": "savvy-starter",
   "version": "1.0.0",
   "description": "",
+  "type":"module",
   "scripts": {
     "serve": "parcel index.html",
-    "parcel-build": "parcel build index.html && cp _redirects ./dist/"
+    "parcel-build": "parcel build index.html && cp _redirects ./dist/",
+    "app:watch": "nodemon --watch ./server -e js ./server/app.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "http-server": "^14.1.1",
     "node": "^16.13.1",
+    "nodemon": "^3.0.1",
     "prettier": "1.19.1"
   },
   "dependencies": {

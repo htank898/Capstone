@@ -38,6 +38,31 @@ function afterRender(state) {
         });
     });
   }
+  if (state.view === "Trade") {
+    document.querySelector("form").addEventListener("submit", event => {
+      event.preventDefault();
+      const blogComment = event.target.elements;
+      console.log("commentList", blogComment);
+      const requestData = {
+        name: blogComment.inputName.value,
+        comment: blogComment.inputComment.value
+      };
+      console.log("request Data", requestData);
+
+      axios
+        // Make a POST request to the API to create a new pizza
+        .post(`${process.env.COMMENT_API_URL}/comments`, requestData)
+        .then(response => {
+          //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
+          store.Trade.comments.push(response.data);
+          router.navigate("/Trade");
+        })
+        // If there is an error log it to the console
+        .catch(error => {
+          console.log("It puked", error);
+        });
+    });
+  }
 }
 
 // add menu toggle to bars icon in nav bar
@@ -66,12 +91,12 @@ router.hooks({
       //       store.Legislators.legislators = response.data;
       //       console.log(store.Legislators);
       //       done();
-      //     })
-      //     .catch(error => {
-      //       console.log("It puked", error);
-      //       done();
       //     });
-      //   break;
+      //   .catch(error => {
+      //     console.log("It puked", error);
+      //     done();
+      //   });
+      // break;
 
       case "House":
         // New Axios get request utilizing already made environment variable
@@ -96,6 +121,20 @@ router.hooks({
             done();
           });
         break;
+      case "Trade":
+        axios
+          // Make a POST request to the API to create a new pizza
+          .get(`${process.env.COMMENT_API_URL}/comments`)
+          .then(response => {
+            //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
+            store.Trade.comments = response.data;
+            done();
+          })
+          // If there is an error log it to the console
+          .catch(error => {
+            console.log("It puked", error);
+          });
+        break;
       default:
         done();
     }
@@ -109,6 +148,7 @@ router.hooks({
     render(store[view]);
   }
 });
+
 router
   .on({
     "/": () => render(store.Home),

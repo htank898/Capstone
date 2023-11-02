@@ -1,14 +1,14 @@
 import { Router } from "express";
-import lobby from "../models/lobby.js";
+import Comment from "../models/Comment.js";
 
 const router = Router();
 
 // Create lobby route
 router.post("/", async (request, response) => {
   try {
-    const newlobby = new Lobby(request.body);
+    const newComment = new Comment(request.body);
 
-    const data = await newStock.save();
+    const data = await newComment.save();
 
     response.json(data);
   } catch (error) {
@@ -28,7 +28,7 @@ router.get("/", async (request, response) => {
     // Store the query params into a JavaScript Object
     const query = request.query; // Defaults to an empty object {}
 
-    const data = await Stock.find(query);
+    const data = await Comment.find(query);
 
     response.json(data);
   } catch (error) {
@@ -42,7 +42,7 @@ router.get("/", async (request, response) => {
 // Get a single pizza by ID
 router.get("/:id", async (request, response) => {
   try {
-    const data = await Stock.findById(request.params.id);
+    const data = await Comment.findById(request.params.id);
 
     response.json(data);
   } catch (error) {
@@ -56,7 +56,7 @@ router.get("/:id", async (request, response) => {
 // Delete a pizza by ID
 router.delete("/:id", async (request, response) => {
   try {
-    const data = await Stock.findByIdAndRemove(request.params.id, {});
+    const data = await Comment.findByIdAndRemove(request.params.id, {});
 
     response.json(data);
   } catch (error) {
@@ -72,12 +72,12 @@ router.put("/:id", async (request, response) => {
   try {
     const body = request.body;
 
-    const data = await Stock.findByIdAndUpdate(
+    const data = await Comment.findByIdAndUpdate(
       request.params.id,
       {
         $set: {
-          ticker: rest.reference.ticker
-          market: rest.reference.market.indicies
+          Name: body.Name,
+          Comment: body.Comment
         }
       },
       {
