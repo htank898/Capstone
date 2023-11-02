@@ -88,8 +88,8 @@ export default state => html`
     </table>
   </section>
 
-  <section id="contributionTable">
-    <table id="getName" class="content-table">
+  <section id="contributionTables">
+    <table id="contributionsTable" class="content-table">
       <thead>
         <tr>
           <th>Contributor Name</th>

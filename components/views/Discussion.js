@@ -11,21 +11,19 @@ export default state => html`
     <input type="submit" name="submit" value="Submit Comment" />
   </form>
 
-  <section id="commentSection">
-    <table id="blogTable" class="ctable">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Comment</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${state.comments
-          .map(blog => {
-            return `<tr><td>${blog.name}</td><td>${blog.comment}</tr>`;
-          })
-          .join("")}
-      </tbody>
-    </table>
-  </section>
+  <table id="blogTable" class="discussionTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${state.comments
+        .map(blog => {
+          return `<tr><td>${blog.name}</td><td>${blog.comment}</tr>`;
+        })
+        .join("")}
+    </tbody>
+  </table>
 `;

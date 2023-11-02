@@ -26,38 +26,4 @@ export default state => html`
   <div class="hometext">
     Promoting Accountability in a Corrupt World
   </div>
-
-  <button href="../views/senate.js" id="calltoaction">
-    Discover
-  </button>
-
-  <section>
-    <h1></h1>
-    <p>Here is some example text</p>
-  </section>
-
-  <section class="red">
-    <h1></h1>
-    <p>Here is some example text</p>
-  </section>
-
-  <section>
-    <h1></h1>
-    <p>Here is some example text</p>
-  </section>
-
-  <section class="pink">
-    <h1></h1>
-    <p>Here is some example text</p>
-  </section>
-
-  <section>
-    <h1></h1>
-    <p>Here is some example text</p>
-  </section>
-
-  <section class="dark">
-    <h1></h1>
-    <p>Here is some example text</p>
-  </section>
 `;

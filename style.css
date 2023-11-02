@@ -317,12 +317,10 @@ html::-webkit-scrollbar-track {
 #nameTable {
   top: -41vh;
   right: 26vw;
-  z-index: 0;
 }
 
 #stateSearch {
   right: 40vw;
-  z-index: 50;
 }
 
 .content-table {
@@ -364,9 +362,9 @@ html::-webkit-scrollbar-track {
   right: 8vw;
   width: 85%;
   object-fit: contain;
-  z-index: 500;
 }
 
-#commentSection {
+
+#contributionsTable {
 
 }
