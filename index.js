@@ -37,6 +37,58 @@ function afterRender(state) {
           console.log("It puked", error);
         });
     });
+    const nameAnchors = Array.from(
+      document.getElementsByClassName("clickName")
+    );
+    nameAnchors.forEach(anchor => {
+      anchor.addEventListener("click", event => {
+        event.preventDefault();
+        let cid = event.target.dataset.cid;
+        console.log(cid);
+        axios
+          .get(
+            `https://www.opensecrets.org/api/?method=candContrib&cid=${cid}&output=json&apikey=${process.env.OPEN_SECRETS}`
+          )
+          .then(response => {
+            console.log("response", response);
+            store.Legislators.contributions = response.data.response.contributors.contributor.map(
+              data => {
+                return data["@attributes"];
+              }
+            );
+            console.log("contributions", store.Legislators.contributions);
+            router.navigate("/legislators");
+          })
+          .catch(error => {
+            console.log("IT puked", error);
+          });
+      });
+    });
+  }
+  if (state.view === "Discussion") {
+    document.querySelector("form").addEventListener("submit", event => {
+      event.preventDefault();
+      const blogComment = event.target.elements;
+      console.log("commentList", blogComment);
+      const requestData = {
+        name: blogComment.inputName.value,
+        comment: blogComment.inputComment.value
+      };
+      console.log("request Data", requestData);
+
+      axios
+        // Make a POST request to the API to create a new pizza
+        .post(`${process.env.COMMENT_API_URL}/comments`, requestData)
+        .then(response => {
+          //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
+          store.Discussion.comments.push(response.data);
+          router.navigate("/Discussion");
+        })
+        // If there is an error log it to the console
+        .catch(error => {
+          console.log("It puked", error);
+        });
+    });
   }
 }
 
@@ -66,12 +118,12 @@ router.hooks({
       //       store.Legislators.legislators = response.data;
       //       console.log(store.Legislators);
       //       done();
-      //     })
-      //     .catch(error => {
-      //       console.log("It puked", error);
-      //       done();
       //     });
-      //   break;
+      //   .catch(error => {
+      //     console.log("It puked", error);
+      //     done();
+      //   });
+      // break;
 
       case "House":
         // New Axios get request utilizing already made environment variable
@@ -96,6 +148,20 @@ router.hooks({
             done();
           });
         break;
+      case "Discussion":
+        axios
+          // Make a POST request to the API to create a new pizza
+          .get(`${process.env.COMMENT_API_URL}/comments`)
+          .then(response => {
+            //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
+            store.Discussion.comments = response.data;
+            done();
+          })
+          // If there is an error log it to the console
+          .catch(error => {
+            console.log("It puked", error);
+          });
+        break;
       default:
         done();
     }
@@ -109,6 +175,7 @@ router.hooks({
     render(store[view]);
   }
 });
+
 router
   .on({
     "/": () => render(store.Home),

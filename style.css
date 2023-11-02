@@ -305,3 +305,68 @@ html::-webkit-scrollbar-track {
   text-align: center;
   padding-top: 20vh;
 }
+
+
+#getName {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+}
+
+#nameTable {
+  top: -41vh;
+  right: 26vw;
+  z-index: 0;
+}
+
+#stateSearch {
+  right: 40vw;
+  z-index: 50;
+}
+
+.content-table {
+  border-collapse:collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+}
+
+.content-table thead tr {
+  background-color: rgb(230, 156, 19);
+  color: white;
+  text-align: justify;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid white;
+  color: whitesmoke;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #717171;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid orange;
+}
+
+
+#adagioBlog {
+  position: absolute;
+  top: 15vh;
+  right: 8vw;
+  width: 85%;
+  object-fit: contain;
+  z-index: 500;
+}
+
+#commentSection {
+
+}

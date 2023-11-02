@@ -4,7 +4,7 @@ import html from "html-literal";
 // const getLegislatorsArray = Object.values(getLegislatorsObject);
 
 export default state => html`
-  <section id="order">
+  <section id="stateSearch">
     <form id="stateForm" method="POST" action="">
       <h2>Search Your Senator</h2>
       <h3>By State</h3>
@@ -68,19 +68,44 @@ export default state => html`
     </form>
   </section>
 
-  <section id="Nametable">
-    <table id="getName">
-      <tr>
-        <th>Name</th>
-        <th>Party</th>
-        <th>Candidate ID</th>
-      </tr>
+  <section id="nameTable">
+    <table id="getName" class="content-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Party</th>
+          <th>Candidate ID</th>
+          <th>Congressional Office (Senate/House)</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${state.legislators
+          .map(legislator => {
+            return `<tr><td><a href="" class="clickName" data-cid="${legislator.cid}">${legislator.firstlast}</a></td><td>${legislator.party}<td>${legislator.cid}<td>${legislator.congress_office}</tr>`;
+          })
+          .join("")}
+      </tbody>
+    </table>
+  </section>
 
-      ${state.legislators
-        .map(legislator => {
-          return `<tr><td>${legislator.firstlast}</td><td>${legislator.party}<td>${legislator.cid}</tr>`;
-        })
-        .join("")}
+  <section id="contributionTable">
+    <table id="getName" class="content-table">
+      <thead>
+        <tr>
+          <th>Contributor Name</th>
+          <th>Total Amount "Donated"</th>
+          <th>Amount Contributed From Pacs</th>
+          <th>Amount Contributed From Individuals</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        ${state.contributions
+          .map(donations => {
+            return `<tr><td>${donations.org_name}</td><td>${donations.total}</td><td>${donations.pacs}<td>${donations.indivs}</td></tr>`;
+          })
+          .join("")}
+      </tbody>
     </table>
   </section>
 `;
