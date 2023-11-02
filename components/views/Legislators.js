@@ -88,10 +88,24 @@ export default state => html`
     </table>
   </section>
 
-  <section id="searchPerson">
-    <form id="searchForm" method="POST" action="">
-      <input type="text" id="cidSearch" name="search" />
-      <input type="submit" name="submitButton" value="View Lobbying Data" />
-    </form>
+  <section id="contributionTable">
+    <table id="getName" class="content-table">
+      <thead>
+        <tr>
+          <th>Contributor Name</th>
+          <th>Total Amount "Donated"</th>
+          <th>Amount Contributed From Pacs</th>
+          <th>Amount Contributed From Individuals</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        ${state.contributions
+          .map(donations => {
+            return `<tr><td>${donations.org_name}</td><td>${donations.total}</td><td>${donations.pacs}<td>${donations.indivs}</td></tr>`;
+          })
+          .join("")}
+      </tbody>
+    </table>
   </section>
 `;
