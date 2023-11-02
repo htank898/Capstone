@@ -1,7 +1,7 @@
 import html from "html-literal";
 
 export default () => html`
-  <footer>
+  <!-- <footer>
     <nav>
       <ul>
         &copy; 2020
@@ -10,5 +10,5 @@ export default () => html`
         <a>Lobbying API<a>
       </ul>
     </nav>
-  </footer>
+  </footer> -->
 `;

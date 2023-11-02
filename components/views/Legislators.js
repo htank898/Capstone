@@ -8,6 +8,12 @@ export default state => html`
     <form id="stateForm" method="POST" action="">
       <h2>Search Your Senator</h2>
       <h3>By State</h3>
+      <p>
+        Simply select the state of the Legislator you would like to research and
+        click on their name. All available info will populate in a table at the
+        bottom of the page
+      </p>
+      <p></p>
       <div>
         <label for="State"></label>
         <select id="states" name="states">
@@ -75,21 +81,21 @@ export default state => html`
           <th>Name</th>
           <th>Party</th>
           <th>Candidate ID</th>
-          <th>Congressional Office (Senate/House)</th>
+          <th>Website</th>
         </tr>
       </thead>
       <tbody>
         ${state.legislators
           .map(legislator => {
-            return `<tr><td><a href="" class="clickName" data-cid="${legislator.cid}">${legislator.firstlast}</a></td><td>${legislator.party}<td>${legislator.cid}<td>${legislator.congress_office}</tr>`;
+            return `<tr><td><a href="" class="clickName" data-cid="${legislator.cid}">${legislator.firstlast}</a></td><td>${legislator.party}<td>${legislator.cid}<td>${legislator.website}</tr>`;
           })
           .join("")}
       </tbody>
     </table>
   </section>
 
-  <section id="contributionTable">
-    <table id="getName" class="content-table">
+  <div id="contributionsTable">
+    <table class="content-table">
       <thead>
         <tr>
           <th>Contributor Name</th>
@@ -107,5 +113,5 @@ export default state => html`
           .join("")}
       </tbody>
     </table>
-  </section>
+  </div>
 `;

@@ -24,6 +24,19 @@
     width: 100%;
   }
 
+  header {
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: black 0.3s ease;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px 0 0px;
+    z-index: 1;
+    color: white;
+  }
 
 body {
   margin: 0;
@@ -32,16 +45,16 @@ body {
   background: var(--background-color);
 }
 
-section {
+/* section {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 400px;
   padding: 100px 20vw;
-}
+} */
 
-.curve {
+/* .curve {
   position: absolute;
   height: 225px;
   width: 100%;
@@ -68,7 +81,7 @@ section {
   height: 100%
   background-color: #3c31dd
   transform: translate(-4%, 40%)
-}
+} */
 
 .blue {
   background: #3c31dd;
@@ -84,48 +97,6 @@ section {
 
 .dark {
   background: #0f0f10;
-}
-
-/* #menu {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-}
-
-#menu-items {
-  margin-left: clamp(4rem, 20vw, 48rem);
-}
-
-#menu-items:hover > .menu-item {
-  opacity: 0.3;
-}
-#menu-items:hover > menu-item:hover {
-  opacity: 1;
-}
-
-.menu-item {
-  color: var(--text-color);
-  font-size: clamp(3rem, 8vw, 8rem);
-  font-family: "Ibarra Real Nova", serif;
-
-  display: block;
-  text-decoration: none;
-  padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
-  transition: opacity 400ms ease; */
-}
-
-header {
-  width: 100%;
-  height: 100px;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: black 0.3s ease;
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 100px 0 0px;
-  z-index: 1;
-  color: white;
 }
 
 .logo {
@@ -317,12 +288,10 @@ html::-webkit-scrollbar-track {
 #nameTable {
   top: -41vh;
   right: 26vw;
-  z-index: 0;
 }
 
 #stateSearch {
   right: 40vw;
-  z-index: 50;
 }
 
 .content-table {
@@ -360,13 +329,75 @@ html::-webkit-scrollbar-track {
 
 #adagioBlog {
   position: absolute;
-  top: 15vh;
+  padding-top: 15vh;
   right: 8vw;
   width: 85%;
   object-fit: contain;
-  z-index: 500;
+
 }
 
-#commentSection {
 
+#stateForm{
+  padding-top: 100px;
+  padding-left: 50px;
+}
+
+#legislatorContainer {
+  padding-top: 100px;
+}
+
+#contributionsTable {
+  display:flex;
+  padding-right: 50px;
+  top: 500px;
+  justify-content: right;
+}
+
+#nameTable{
+  padding-left: 50px;
+}
+
+#blogTable.blogTable {
+  padding-top: 250px;
+  padding-left:50px;
+  padding-right: 50px;
+}
+
+.content-table {
+  border-collapse:collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+}
+
+.blogTable thead tr {
+  background-color: rgb(230, 156, 19);
+  color: white;
+  text-align: justify;
+  font-weight: bold;
+}
+
+.blogTable th,
+.blogTable td {
+  padding: 12px 15px;
+}
+
+.blogTable tbody tr {
+  border-bottom: 1px solid white;
+  color: whitesmoke;
+}
+
+.blogTable tbody tr:nth-of-type(even) {
+  background-color: #717171;
+}
+
+.blogTable tbody tr:last-of-type {
+  border-bottom: 2px solid orange;
+}
+
+#aboutMe {
+  padding-top: 950px;
+  padding-left: 50px;
+  padding-right:50px
+  font:
 }
