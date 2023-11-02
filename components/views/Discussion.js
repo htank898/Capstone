@@ -4,14 +4,14 @@ export default state => html`
   <form id="adagioBlog" method="POST" action="">
     <label for="inputName">Enter Name:</label>
     <input type="text" id="inputName" name="inputName" />
-    <div>
+    <div id="commentBox">
       <label for="inputComment">Enter Comment:</label>
       <input type="text" id="inputComment" name="inputComment" />
     </div>
     <input type="submit" name="submit" value="Submit Comment" />
   </form>
 
-  <table id="blogTable" class="discussionTable">
+  <table id="blogTable" class="blogTable">
     <thead>
       <tr>
         <th>Name</th>
