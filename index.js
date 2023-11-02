@@ -37,6 +37,33 @@ function afterRender(state) {
           console.log("It puked", error);
         });
     });
+    const nameAnchors = Array.from(
+      document.getElementsByClassName("clickName")
+    );
+    nameAnchors.forEach(anchor => {
+      anchor.addEventListener("click", event => {
+        event.preventDefault();
+        let cid = event.target.dataset.cid;
+        console.log(cid);
+        axios
+          .get(
+            `https://www.opensecrets.org/api/?method=candContrib&cid=${cid}&output=json&apikey=${process.env.OPEN_SECRETS}`
+          )
+          .then(response => {
+            console.log("response", response);
+            store.Legislators.contributions = response.data.response.contributors.contributor.map(
+              data => {
+                return data["@attributes"];
+              }
+            );
+            console.log("contributions", store.Legislators.contributions);
+            router.navigate("/legislators");
+          })
+          .catch(error => {
+            console.log("IT puked", error);
+          });
+      });
+    });
   }
   if (state.view === "Trade") {
     document.querySelector("form").addEventListener("submit", event => {
