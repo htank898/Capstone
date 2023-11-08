@@ -324,6 +324,7 @@ html::-webkit-scrollbar-track {
 
 .content-table tbody tr:last-of-type {
   border-bottom: 2px solid orange;
+  padding-left:
 }
 
 
@@ -399,5 +400,10 @@ html::-webkit-scrollbar-track {
   padding-top: 950px;
   padding-left: 50px;
   padding-right:50px
-  font:
+}
+
+#tables {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
 }
