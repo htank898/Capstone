@@ -73,45 +73,46 @@ export default state => html`
       <input type="submit" name="submit" value="Search" />
     </form>
   </section>
+  <div id="tables">
+    <section id="nameTable">
+      <table id="getName" class="content-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Party</th>
+            <th>Candidate ID</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${state.legislators
+            .map(legislator => {
+              return `<tr><td><a href="" class="clickName" data-cid="${legislator.cid}">${legislator.firstlast}</a></td><td>${legislator.party}<td>${legislator.cid}<td>${legislator.website}</tr>`;
+            })
+            .join("")}
+        </tbody>
+      </table>
+    </section>
 
-  <section id="nameTable">
-    <table id="getName" class="content-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Party</th>
-          <th>Candidate ID</th>
-          <th>Website</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${state.legislators
-          .map(legislator => {
-            return `<tr><td><a href="" class="clickName" data-cid="${legislator.cid}">${legislator.firstlast}</a></td><td>${legislator.party}<td>${legislator.cid}<td>${legislator.website}</tr>`;
-          })
-          .join("")}
-      </tbody>
-    </table>
-  </section>
+    <div id="contributionsTable">
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>Contributor Name</th>
+            <th>Total Amount "Donated"</th>
+            <th>Amount Contributed From Pacs</th>
+            <th>Amount Contributed From Individuals</th>
+          </tr>
+        </thead>
 
-  <div id="contributionsTable">
-    <table class="content-table">
-      <thead>
-        <tr>
-          <th>Contributor Name</th>
-          <th>Total Amount "Donated"</th>
-          <th>Amount Contributed From Pacs</th>
-          <th>Amount Contributed From Individuals</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        ${state.contributions
-          .map(donations => {
-            return `<tr><td>${donations.org_name}</td><td>${donations.total}</td><td>${donations.pacs}<td>${donations.indivs}</td></tr>`;
-          })
-          .join("")}
-      </tbody>
-    </table>
+        <tbody>
+          ${state.contributions
+            .map(donations => {
+              return `<tr><td>${donations.org_name}</td><td>${donations.total}</td><td>${donations.pacs}<td>${donations.indivs}</td></tr>`;
+            })
+            .join("")}
+        </tbody>
+      </table>
+    </div>
   </div>
 `;

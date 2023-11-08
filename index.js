@@ -43,6 +43,7 @@ function afterRender(state) {
     nameAnchors.forEach(anchor => {
       anchor.addEventListener("click", event => {
         event.preventDefault();
+        // Retrieve the value of the "data-cid" attribute from the clicked element
         let cid = event.target.dataset.cid;
         console.log(cid);
         axios
@@ -51,6 +52,7 @@ function afterRender(state) {
           )
           .then(response => {
             console.log("response", response);
+            // cut out all the fluff in the super nested API
             store.Legislators.contributions = response.data.response.contributors.contributor.map(
               data => {
                 return data["@attributes"];
@@ -68,6 +70,7 @@ function afterRender(state) {
   if (state.view === "Discussion") {
     document.querySelector("form").addEventListener("submit", event => {
       event.preventDefault();
+      // Retrieve the form elements and store them in blogComment
       const blogComment = event.target.elements;
       console.log("commentList", blogComment);
       const requestData = {
@@ -75,9 +78,9 @@ function afterRender(state) {
         comment: blogComment.inputComment.value
       };
       console.log("request Data", requestData);
-
+      //Post comment to Database
       axios
-        // Make a POST request to the API to create a new pizza
+        // Make a POST request to the API to create a new comment
         .post(`${process.env.COMMENT_API_URL}/comments`, requestData)
         .then(response => {
           //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
